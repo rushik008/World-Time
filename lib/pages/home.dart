@@ -16,7 +16,7 @@ class _HomeState extends State<Home> {
     try {
       data = ModalRoute.of(context)!.settings.arguments as Map;
     } catch (e) {
-      print('Error found: $e');
+      // print('Error found: $e');
       data = data;
     }
     // print(data);
@@ -49,6 +49,7 @@ class _HomeState extends State<Home> {
                       fontSize: 40.0,
                       fontWeight: FontWeight.bold,
                       color: Colors.white,
+                      fontFamily: 'Merienda',
                     ),
                   ),
                   const SizedBox(
@@ -60,6 +61,7 @@ class _HomeState extends State<Home> {
                       fontSize: 50.0,
                       fontWeight: FontWeight.bold,
                       color: Colors.white,
+                      fontFamily: 'Merienda',
                     ),
                   ),
                   const SizedBox(
@@ -74,13 +76,15 @@ class _HomeState extends State<Home> {
                     ),
                     icon: const Icon(
                       Icons.edit_location,
-                      color: Colors.black,
+                      // color: Colors.lightBlueAccent,
+                      color: Colors.deepPurple,
                     ),
                     label: const Text(
                       'Edit Location',
                       style: TextStyle(
                         fontSize: 18,
-                        color: Colors.black,
+                        color: Colors.deepPurple,
+                      fontFamily: 'Merienda',
                       ),
                     ),
                   ),

@@ -34,7 +34,7 @@ class WorldTime {
 
       isDayTime = ((current.hour > 6 && current.hour < 20) ? true : false);
     } catch (e) {
-      print('Error found: $e');
+      // print('Error found: $e');
       time = "Could not find data!";
     }
   }
