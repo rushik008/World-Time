@@ -10,18 +10,27 @@ class ChooseLocation extends StatefulWidget {
 
 class _ChooseLocationState extends State<ChooseLocation> {
   List<WorldTime> locations = [
+    WorldTime(url: 'Asia/Kolkata', location: 'Kolkata', flag: 'india.png'),
+    WorldTime(url: 'Asia/Yakutsk', location: 'Yakutsk', flag: 'russia.png'),
     WorldTime(url: 'Asia/Qatar', location: 'Qatar', flag: 'qatar.png'),
     WorldTime(url: 'Asia/Kathmandu', location: 'Kathmandu', flag: 'nepal.png'),
-    WorldTime(url: 'Asia/Kolkata', location: 'Kolkata', flag: 'india.png'),
-    WorldTime(url: 'Asia/Singapore', location: 'Singapore', flag: 'singapore.png'),
+    WorldTime(url: 'Asia/Dhaka', location: 'Dhaka', flag: 'bangladesh.png'),
+    WorldTime(url: 'Asia/Jerusalem', location: 'Jerusalem', flag: 'israel.png'),
+    WorldTime(url: 'Asia/Shanghai', location: 'Shanghai', flag: 'china.png'),
     WorldTime(url: 'Asia/Tokyo', location: 'Tokyo', flag: 'japan.png'),
-    WorldTime(url: 'Africa/Nairobi', location: 'Nairobi', flag: 'kenya.png'),
+    WorldTime(url: 'Asia/Amman', location: 'Amman', flag: 'jordan.png'),
     WorldTime(url: 'Asia/Seoul', location: 'Seoul', flag: 'south_korea.png'),
     WorldTime(url: 'Asia/Jakarta', location: 'Jakarta', flag: 'indonesia.png'),
+    WorldTime(url: 'Asia/Choibalsan', location: 'Choibalsan', flag: 'mongolia.png'),
+    WorldTime(url: 'Asia/Singapore', location: 'Singapore', flag: 'singapore.png'),
+    WorldTime(url: 'America/New_York', location: 'New York', flag: 'usa.png'),
     WorldTime(url: 'America/Chicago', location: 'Chicago', flag: 'usa.png'),
     WorldTime(url: 'Europe/London', location: 'London', flag: 'uk.png'),
+    WorldTime(url: 'Europe/Moscow', location: 'Moscow', flag: 'russia.png'),
+    WorldTime(url: 'Europe/Amsterdam', location: 'Amsterdam', flag: 'netherlands.png'),
+    WorldTime(url: 'Europe/Istanbul', location: 'Istanbul', flag: 'turkey.png'),
     WorldTime(url: 'Europe/Berlin', location: 'Athens', flag: 'greece.png'),
-    WorldTime(url: 'America/New_York', location: 'New York', flag: 'usa.png'),
+    WorldTime(url: 'Africa/Nairobi', location: 'Nairobi', flag: 'kenya.png'),
     WorldTime(url: 'Africa/Cairo', location: 'Cairo', flag: 'egypt.png'),
   ];
 
@@ -80,7 +89,8 @@ class _ChooseLocationState extends State<ChooseLocation> {
                 ),
                 leading: CircleAvatar(
                   backgroundImage: AssetImage(
-                      'assets/images/flags/${locations[index].flag}'),
+                    'assets/images/flags/${locations[index].flag}',
+                  ),
                 ),
                 tileColor: Colors.white,
               ),

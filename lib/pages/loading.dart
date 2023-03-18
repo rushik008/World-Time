@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:world_time/pages/splash_screen.dart';
 import 'package:world_time/services/world_time.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
+// import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'dart:async';
 
 class Loading extends StatefulWidget {
   const Loading({super.key});
@@ -13,8 +15,9 @@ class _LoadingState extends State<Loading> {
   // setting up world time
 
   void setupWorldTime() async {
-    WorldTime instance = WorldTime(
-        location: 'Berlin', flag: 'germany.png', url: 'Europe/Berlin');
+    // initial WorldTime instance to display initial time of the location
+    WorldTime instance =
+        WorldTime(location: 'Kolkata', flag: 'india.png', url: 'Asia/Kolkata');
 
     await instance.getTime();
     // print(instance.time);
@@ -30,21 +33,31 @@ class _LoadingState extends State<Loading> {
     });
   }
 
+  Timer? timer;
   @override
   void initState() {
     super.initState();
-    setupWorldTime();
+
+    // providing timer to display splash screen for given seconds
+    // and then it will load the initial data by calling setupWorldTime() function
+    timer = Timer.periodic(
+      const Duration(seconds: 4),
+      (Timer t) => setupWorldTime(),
+    );
+
+    // setupWorldTime();
   }
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
-        child: SpinKitCircle(
-          color: Colors.black,
-          size: 50.0,
-        ),
-      ),
-    );
+    return const SplashScreen();
+    // return const Scaffold(
+    //   body: Center(
+    //     child: SpinKitCircle(
+    //       color: Colors.black,
+    //       size: 50.0,
+    //     ),
+    //   ),
+    // );
   }
 }
