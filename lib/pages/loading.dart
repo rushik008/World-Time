@@ -41,7 +41,7 @@ class _LoadingState extends State<Loading> {
     // providing timer to display splash screen for given seconds
     // and then it will load the initial data by calling setupWorldTime() function
     timer = Timer.periodic(
-      const Duration(seconds: 4),
+      const Duration(seconds: 5),
       (Timer t) => setupWorldTime(),
     );
 

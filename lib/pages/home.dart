@@ -107,18 +107,17 @@ class _HomeState extends State<Home> {
                       });
                     },
                     style: TextButton.styleFrom(
-                      backgroundColor: Colors.white,
+                      backgroundColor: Colors.black,
                     ),
                     icon: const Icon(
                       Icons.edit_location,
-                      // color: Colors.lightBlueAccent,
-                      color: Colors.deepPurple,
+                      color: Color(0xFFE7C950),
                     ),
                     label: const Text(
                       'Edit Location',
                       style: TextStyle(
                         fontSize: 18,
-                        color: Colors.deepPurple,
+                        color: Color(0xFFE7C950),
                         fontFamily: 'Merienda',
                       ),
                     ),
