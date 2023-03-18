@@ -9,16 +9,30 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   // assigning the data received from the loading page
-  Map data = {}; // initializing empty map to recieve data from loading page
+  Map data = {}; // initializing empty map to receive data from 'loading page'
 
   @override
   Widget build(BuildContext context) {
-    try {
-      data = ModalRoute.of(context)!.settings.arguments as Map;
-    } catch (e) {
-      // print('Error found: $e');
-      data = data;
-    }
+    // this will be executed every time build method is called
+    // this method will fetch data, as it will be empty initially
+    // data = ModalRoute.of(context)!.settings.arguments as Map;
+
+    // but when for second and more time the location is chosen by the user/updated
+    // we need to update the data again
+    // when data is not empty assign second time chosen location/data
+    // otherwise if data is empty, use initial data assignment code(described above).
+    data = data.isNotEmpty
+        ? data
+        : ModalRoute.of(context)!.settings.arguments as Map;
+
+    // print('data-> $data');
+
+    // try {
+    //   data = ModalRoute.of(context)!.settings.arguments as Map;
+    // } catch (e) {
+    //   // print('Error found: $e');
+    //   data = data;
+    // }
     // print(data);
 
     // background image for the home screen
@@ -68,8 +82,29 @@ class _HomeState extends State<Home> {
                     height: 18,
                   ),
                   TextButton.icon(
-                    onPressed: () {
-                      Navigator.pushNamed(context, '/location');
+                    onPressed: () async {
+                      // IMPORTANT
+                      // here a big async function is called
+                      // it goes to edit location page
+                      // fetches the data (chosen location) and pop out
+                      // these data are not known, therefore it is stored in 'dynamic result'
+                      // IMP: then overrides the map called 'data'
+                      dynamic result =
+                          await Navigator.pushNamed(context, '/location');
+
+                      setState(() {
+                        // overriding the 'data' map as location is chose for the second time
+                        data = {
+                          'time': result['time'],
+                          'location': result['location'],
+                          'isDayTime': result['isDayTime'],
+                          'flag': result['flag'],
+                          'url': result['url']
+                          // all the data of myInstance from choose_location(pop method) is assigned in result
+                          // therefore overriding the 'data' map with the updated value
+                        };
+                        // print('result-> $result');
+                      });
                     },
                     style: TextButton.styleFrom(
                       backgroundColor: Colors.white,
@@ -84,7 +119,7 @@ class _HomeState extends State<Home> {
                       style: TextStyle(
                         fontSize: 18,
                         color: Colors.deepPurple,
-                      fontFamily: 'Merienda',
+                        fontFamily: 'Merienda',
                       ),
                     ),
                   ),

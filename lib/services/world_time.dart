@@ -20,22 +20,23 @@ class WorldTime {
       Map data = jsonDecode(response.body);
       String datetime = data['datetime'];
       String offset = data['utc_offset'].substring(1, 3);
-      // print(datetime);
-      // print(offset);
+      // print('datetime-> $datetime');
+      // print('offset-> $offset');
 
       // create DateTime object
       DateTime current = DateTime.parse(datetime);
-      current = current.add(Duration(seconds: int.parse(offset)));
-      // print(current);
+      current = current.add(Duration(hours: int.parse(offset)));
+      // print('current -> $current');
 
       // time = current.toString(); // converting current to string and assigning it
-      time =
-          DateFormat.jm().format(current); // formatting date using intl package
+      time = DateFormat.jm()
+          .format(current)
+          .toString(); // formatting date using intl package
 
       isDayTime = ((current.hour > 6 && current.hour < 20) ? true : false);
     } catch (e) {
       // print('Error found: $e');
-      time = "Could not find data!";
+      time = "Couldn't find!";
     }
   }
 }

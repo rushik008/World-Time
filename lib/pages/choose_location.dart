@@ -10,19 +10,39 @@ class ChooseLocation extends StatefulWidget {
 
 class _ChooseLocationState extends State<ChooseLocation> {
   List<WorldTime> locations = [
-    WorldTime(url: 'Europe/London', location: 'London', flag: 'uk.png'),
-    WorldTime(url: 'Asia/India', location: 'Gujarat', flag: 'india.png'),
-    WorldTime(url: 'Europe/Berlin', location: 'Athens', flag: 'greece.png'),
-    WorldTime(url: 'Asia/India', location: 'Delhi', flag: 'india.png'),
-    WorldTime(url: 'Africa/Cairo', location: 'Cairo', flag: 'egypt.png'),
+    WorldTime(url: 'Asia/Qatar', location: 'Qatar', flag: 'qatar.png'),
+    WorldTime(url: 'Asia/Kathmandu', location: 'Kathmandu', flag: 'nepal.png'),
+    WorldTime(url: 'Asia/Kolkata', location: 'Kolkata', flag: 'india.png'),
+    WorldTime(url: 'Asia/Singapore', location: 'Singapore', flag: 'singapore.png'),
+    WorldTime(url: 'Asia/Tokyo', location: 'Tokyo', flag: 'japan.png'),
     WorldTime(url: 'Africa/Nairobi', location: 'Nairobi', flag: 'kenya.png'),
-    WorldTime(url: 'Asia/India', location: 'Uttar Pradesh', flag: 'india.png'),
-    WorldTime(url: 'America/Chicago', location: 'Chicago', flag: 'usa.png'),
-    WorldTime(url: 'Asia/India', location: 'Tamilnadu', flag: 'india.png'),
-    WorldTime(url: 'America/New_York', location: 'New York', flag: 'usa.png'),
     WorldTime(url: 'Asia/Seoul', location: 'Seoul', flag: 'south_korea.png'),
     WorldTime(url: 'Asia/Jakarta', location: 'Jakarta', flag: 'indonesia.png'),
+    WorldTime(url: 'America/Chicago', location: 'Chicago', flag: 'usa.png'),
+    WorldTime(url: 'Europe/London', location: 'London', flag: 'uk.png'),
+    WorldTime(url: 'Europe/Berlin', location: 'Athens', flag: 'greece.png'),
+    WorldTime(url: 'America/New_York', location: 'New York', flag: 'usa.png'),
+    WorldTime(url: 'Africa/Cairo', location: 'Cairo', flag: 'egypt.png'),
   ];
+
+  void updateTime(index) async {
+    // here a new instance is not created
+    // instead we are storing the upper declared instance(WorldTime) in the 'myInstance' instancE
+    WorldTime myInstance = locations[index];
+
+    // we need to wait for this function to get all the deatails of a particular instance
+    await myInstance.getTime();
+
+    // then navigate to home screen with all the data using MAP
+    // ignore: use_build_context_synchronously
+    Navigator.pop(context, {
+      'location': myInstance.location,
+      'flag': myInstance.flag,
+      'time': myInstance.time,
+      'isDayTime': myInstance.isDayTime,
+      'url': myInstance.url
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -47,9 +67,11 @@ class _ChooseLocationState extends State<ChooseLocation> {
             padding: const EdgeInsets.symmetric(vertical: 2.0, horizontal: 5.0),
             child: Card(
               child: ListTile(
-                onTap: () {},
+                onTap: () {
+                  updateTime(index);
+                },
                 title: Text(
-                  locations[index].location,
+                  locations[index].location, // name of the location
                   style: const TextStyle(
                     fontSize: 18,
                     color: Colors.black,

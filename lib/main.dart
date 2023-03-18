@@ -7,7 +7,7 @@ void main() {
   runApp(
     MaterialApp(
       debugShowCheckedModeBanner: false,
-      // initialRoute: '/home',
+      themeMode: ThemeMode.light,
       initialRoute: '/',
       routes: {
         '/': (context) => const Loading(),
