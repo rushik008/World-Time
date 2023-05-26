@@ -47,6 +47,7 @@ class _LoadingState extends State<Loading> {
 
   @override
   void dispose() {
+    timer?.cancel();
     super.dispose();
   }
 
