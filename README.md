@@ -19,9 +19,9 @@
 
 * [About the Project](#about-the-project)
 * [Built With](#built-with)
+* [Project Screenshots](#project-screenshots)
 * [Usage](#usage)
 * [Authors](#authors)
-* [Acknowledgements](#acknowledgements)
 
 ## About The Project
 
@@ -36,6 +36,37 @@ User-Friendly Interface: The mobile application features a clean and intuitive i
 ## Built With
 
 World Time is a mobile application built using the Flutter framework and leveraging the http://worldtimeapi.org/ API.
+
+
+## Project Screenshots
+
+<br/>
+  <h3 align="center">Splash Screen</h3>
+  <p align="center">
+<img src="https://github.com/rushik008/World-Time/assets/101036053/a4247c08-0867-401a-922e-e546139f9393" alt="Splash Screen" width="400px" height="800px">
+  </p>
+
+<br/>
+
+  <h3 align="center">Home Page</h3>
+  <p align="center">
+<img src="https://github.com/rushik008/World-Time/assets/101036053/0e63ed85-c25f-4a7f-a4d7-421fda373a5f" alt="Home Page" width="400px" height="800px">
+  </p>
+
+<br/>
+
+<h3 align="center">Choose Location</h3>
+  <p align="center">
+<img src="https://github.com/rushik008/World-Time/assets/101036053/0c8bbc19-a8bd-496c-9b43-f31cec6177e0" alt="Choose Location" width="400px" height="800px">
+  </p>
+  
+<br/>
+
+<h3 align="center">Result</h3>
+  <p align="center">
+<img src="https://github.com/rushik008/World-Time/assets/101036053/a8757e20-1398-4d3d-9ebd-da88ed332bcc" alt="Result" width="400px" height="800px">
+  </p>
+<br/>
 
 ## Usage
 
