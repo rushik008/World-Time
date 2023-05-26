@@ -1,7 +1,7 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:world_time/pages/splash_screen.dart';
 import 'package:world_time/services/world_time.dart';
-import 'dart:async';
 
 class Loading extends StatefulWidget {
   const Loading({super.key});
@@ -43,7 +43,11 @@ class _LoadingState extends State<Loading> {
       const Duration(seconds: 5),
       (Timer t) => setupWorldTime(),
     );
+  }
 
+  @override
+  void dispose() {
+    super.dispose();
   }
 
   @override
