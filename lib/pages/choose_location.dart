@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:world_time/data/location_data.dart';
 import 'package:world_time/services/world_time.dart';
 
 class ChooseLocation extends StatefulWidget {
@@ -9,45 +10,16 @@ class ChooseLocation extends StatefulWidget {
 }
 
 class _ChooseLocationState extends State<ChooseLocation> {
-  List<WorldTime> locations = [
-    WorldTime(url: 'Asia/Kolkata', location: 'Kolkata', flag: 'india.png'),
-    WorldTime(url: 'Asia/Yakutsk', location: 'Yakutsk', flag: 'russia.png'),
-    WorldTime(url: 'Asia/Qatar', location: 'Qatar', flag: 'qatar.png'),
-    WorldTime(url: 'Asia/Kathmandu', location: 'Kathmandu', flag: 'nepal.png'),
-    WorldTime(url: 'Asia/Dhaka', location: 'Dhaka', flag: 'bangladesh.png'),
-    WorldTime(url: 'Asia/Jerusalem', location: 'Jerusalem', flag: 'israel.png'),
-    WorldTime(url: 'Asia/Shanghai', location: 'Shanghai', flag: 'china.png'),
-    WorldTime(url: 'Asia/Tokyo', location: 'Tokyo', flag: 'japan.png'),
-    WorldTime(url: 'Asia/Amman', location: 'Amman', flag: 'jordan.png'),
-    WorldTime(url: 'Asia/Seoul', location: 'Seoul', flag: 'south_korea.png'),
-    WorldTime(url: 'Asia/Jakarta', location: 'Jakarta', flag: 'indonesia.png'),
-    WorldTime(
-        url: 'Asia/Choibalsan', location: 'Choibalsan', flag: 'mongolia.png'),
-    WorldTime(
-        url: 'Asia/Singapore', location: 'Singapore', flag: 'singapore.png'),
-    WorldTime(url: 'America/New_York', location: 'New York', flag: 'usa.png'),
-    WorldTime(url: 'America/Chicago', location: 'Chicago', flag: 'usa.png'),
-    WorldTime(url: 'Europe/London', location: 'London', flag: 'uk.png'),
-    WorldTime(url: 'Europe/Moscow', location: 'Moscow', flag: 'russia.png'),
-    WorldTime(
-        url: 'Europe/Amsterdam',
-        location: 'Amsterdam',
-        flag: 'netherlands.png'),
-    WorldTime(url: 'Europe/Istanbul', location: 'Istanbul', flag: 'turkey.png'),
-    WorldTime(url: 'Europe/Berlin', location: 'Athens', flag: 'greece.png'),
-    WorldTime(url: 'Africa/Nairobi', location: 'Nairobi', flag: 'kenya.png'),
-    WorldTime(url: 'Africa/Cairo', location: 'Cairo', flag: 'egypt.png'),
-  ];
-
   void updateTime(index) async {
     // here a new instance is not created
-    // instead we are storing the upper declared instance(WorldTime) in the 'myInstance' instancE
+    // instead we are storing the upper declared instance(WorldTime) in the 'myInstance' instance
+    // then getTime method is called along with url, location and flag.
     WorldTime myInstance = locations[index];
 
-    // we need to wait for this function to get all the deatails of a particular instance
+    // we need to wait for this function to get all the details of a particular instance
     await myInstance.getTime();
 
-    // then navigate to home screen with all the data using MAP
+    // then navigate to 'home screen' with all the data using MAP
     // ignore: use_build_context_synchronously
     Navigator.pop(context, {
       'location': myInstance.location,
@@ -105,7 +77,6 @@ class _ChooseLocationState extends State<ChooseLocation> {
                       fontFamily: 'Merienda',
                     ),
                   ),
-                  // tileColor: Colors.black,
                 ),
               ),
             ),

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:world_time/pages/splash_screen.dart';
 import 'package:world_time/services/world_time.dart';
-// import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'dart:async';
 
 class Loading extends StatefulWidget {
@@ -45,19 +44,10 @@ class _LoadingState extends State<Loading> {
       (Timer t) => setupWorldTime(),
     );
 
-    // setupWorldTime();
   }
 
   @override
   Widget build(BuildContext context) {
     return const SplashScreen();
-    // return const Scaffold(
-    //   body: Center(
-    //     child: SpinKitCircle(
-    //       color: Colors.black,
-    //       size: 50.0,
-    //     ),
-    //   ),
-    // );
   }
 }

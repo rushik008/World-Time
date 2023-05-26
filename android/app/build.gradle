@@ -28,6 +28,8 @@ apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 android {
     compileSdkVersion flutter.compileSdkVersion
     ndkVersion flutter.ndkVersion
+    namespace 'com.shaypram.world_time'
+    testNamespace 'com.shaypram.world_time_test'
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -47,10 +49,16 @@ android {
         applicationId "com.shaypram.world_time"
         // You can update the following values to match your application needs.
         // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-build-configuration.
+        
         minSdkVersion flutter.minSdkVersion
         targetSdkVersion flutter.targetSdkVersion
-        versionCode flutterVersionCode.toInteger()
-        versionName flutterVersionName
+        // versionCode flutterVersionCode.toInteger()
+        // versionName flutterVersionName
+        
+        // minSdkVersion = 19
+        // targetSdkVersion = 24
+        versionCode = 1
+        versionName = "sn1.0"
     }
 
     buildTypes {
@@ -67,5 +75,5 @@ flutter {
 }
 
 dependencies {
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
 }
